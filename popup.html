@@ -55,10 +55,10 @@
       var subtext_refs   = $.map(subtext_tds , function(n){ return $(n).find("a"); });
 
       var comment_counts = $.map(subtext_refs, function(ref){ return ref[1].text; });
-      var comment_links  = $.map(subtext_refs, function(ref){ return hn3_url + ref[1].href; });
+      var comment_links  = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[1]).attr('href'); });
 
       var posters        = $.map(subtext_refs, function(ref){ return ref[0].text; });
-      var poster_links   = $.map(subtext_refs, function(ref){ return hn3_url + ref[0].href; });
+      var poster_links   = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[0]).attr('href'); });
 
       $.each(titles, function(i, title){
         articles[i] = { 
