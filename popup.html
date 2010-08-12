@@ -42,8 +42,6 @@
 	</style>
 
   <script>
-    $('div.hn3').html("<img src=\"images/loading.gif\">");
-
     var hn3_url = "http://news.ycombinator.com"
 
     $.get(hn3_url, function(data){
@@ -73,7 +71,7 @@
         };
       });
 
-      $('div.hn3').html(articlesToHtml(articles));
+      $('div.hn3').empty().html(articlesToHtml(articles));
     });
 
     function articlesToHtml(articles) {
@@ -96,6 +94,8 @@
 
   <body>
     <div class="header">Hacker News<sub>3</sub></div>
-    <div class="hn3"></div>
+		<div class="hn3">
+			<img src=\"images/loading.gif\">
+		</div>
   </body>
 </html>
