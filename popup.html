@@ -1,0 +1,101 @@
+<html>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<style>
+		body {
+			min-width:357px;
+			overflow-x:hidden;
+      font-family: Verdana;
+		}
+
+    .header {
+      font-weight: bold;
+      background: #F60;
+      margin: 4px 2px;
+      padding: 4px;
+    }
+
+    .title a {
+      text-decoration: none;
+      font-size: larger;
+      font-weight: bold;
+      color: 0;
+    }
+
+    .title:hover {
+      background: #828282;
+    }
+
+    .subtext a {
+      text-decoration: none;
+      font-size: smaller;
+      color: #828282;
+    }
+
+    .original_article {
+      float: right;
+      display: block;
+      margin-right: 3px;
+      text-align: right;
+      margin-bottom: 15px;
+    }
+
+	</style>
+
+  <script>
+    $('div.hn3').html("<img src=\"images/loading.gif\">");
+
+    var hn3_url = "http://news.ycombinator.com"
+
+    $.get(hn3_url, function(data){
+      var title_tds = $(data).find("td.title").find("a").slice(0, 3);
+      var subtext_tds = $(data).find("td.subtext").slice(0, 3);
+
+      var articles = [];
+
+      var titles         = $.map(title_tds   , function(n){ return n.text; });
+      var article_links  = $.map(title_tds   , function(n){ return n.href; });
+      var subtext_refs   = $.map(subtext_tds , function(n){ return $(n).find("a"); });
+
+      var comment_counts = $.map(subtext_refs, function(ref){ return ref[1].text; });
+      var comment_links  = $.map(subtext_refs, function(ref){ return hn3_url + ref[1].href; });
+
+      var posters        = $.map(subtext_refs, function(ref){ return ref[0].text; });
+      var poster_links   = $.map(subtext_refs, function(ref){ return hn3_url + ref[0].href; });
+
+      $.each(titles, function(i, title){
+        articles[i] = { 
+          title         : title,
+          article_link  : article_links[i],
+          comment_count : comment_counts[i],
+          comment_link  : comment_links[i],
+          poster        : posters[i],
+          poster_link   : poster_links[i]
+        };
+      });
+
+      $('div.hn3').html(articlesToHtml(articles));
+    });
+
+    function articlesToHtml(articles) {
+      var html = ""
+      $.each(articles, function(i, article) { html = html + articleToHtml(article) });
+      return html;
+    }
+
+    function articleToHtml(article) {
+      html = "<p>" +
+        "<div class=\"title\"><a href=\"" + article["comment_link"] + "\">" + article["title"] + "</a></div>" +
+        "<div class=\"subtext\">" + 
+          "<a href=\"" + article["comment_link"] + "\">" + article["comment_count"] + "</a>" +
+          "<div class=\"article_text\"><a href=\"" + article["article_link"] + "\">Original</a></div>" +
+        "</div>" + 
+      "<hr /></p>";
+      return html;
+    }
+  </script>
+
+  <body>
+    <div class="header">Hacker News<sub>3</sub></div>
+    <div class="hn3"></div>
+  </body>
+</html>
