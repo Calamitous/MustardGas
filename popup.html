@@ -1,11 +1,11 @@
 <html>
-	<script type="text/javascript" src="javascripts/jquery.js"></script>
-	<style>
-		body {
-			min-width:357px;
-			overflow-x:hidden;
+  <script type="text/javascript" src="javascripts/jquery.js"></script>
+  <style>
+    body {
+      min-width:357px;
+      overflow-x:hidden;
       font-family: Verdana;
-		}
+    }
 
     .header {
       font-weight: bold;
@@ -16,9 +16,9 @@
 
     .header a {
       text-decoration: none;
-			color: #000;
-			padding-right: 145px;
-		}
+      color: #000;
+      padding-right: 145px;
+    }
 
     .title a {
       text-decoration: none;
@@ -45,7 +45,7 @@
       margin-bottom: 15px;
     }
 
-	</style>
+  </style>
 
   <script>
     var hn3_url = "http://news.ycombinator.com"
@@ -88,24 +88,24 @@
 
     function articleToHtml(article) {
       html = "<p>" +
-        "<div class=\"title\">" + linkTo(article["comment_link"], article["title"]) + "</div>" +
-        "<div class=\"subtext\">" + 
-					linkTo(article["comment_link"], article["comment_count"]) + 
-          "<div class=\"article_text\">" + linkTo(article["article_link"], "Original") + "</div>" +
+      "<div class=\"title\">" + linkTo(article["comment_link"], article["title"]) + "</div>" +
+      "<div class=\"subtext\">" + 
+        linkTo(article["comment_link"], article["comment_count"]) + 
+        "<div class=\"article_text\">" + linkTo(article["article_link"], "Original") + "</div>" +
         "</div>" + 
       "<hr /></p>";
       return html;
     }
 
-		function linkTo(link, text) {
-			return "<a href=\"" + link + "\" target=\"_blank\">" + text + "</a>";
-		}
+    function linkTo(link, text) {
+      return "<a href=\"" + link + "\" target=\"_blank\">" + text + "</a>";
+    }
   </script>
 
   <body>
-		<div class="header"><a href="http://news.ycombinator.com" target="_blank">Hacker News<sub>3</sub></a></div>
-		<div class="hn3">
-			<img src=\"images/loading.gif\">
-		</div>
+    <div class="header"><a href="http://news.ycombinator.com" target="_blank">Hacker News<sub>3</sub></a></div>
+    <div class="hn3">
+      <img src=\"images/loading.gif\">
+    </div>
   </body>
 </html>
