@@ -4,11 +4,15 @@
   "description": "Mustard Gas",
   "browser_action": {
     "default_icon": "images/mustard_gas.png",
-		"popup": "popup.html"
+    "icons": {
+      "16":  "images/icon16.png",
+      "48":  "images/icon48.png",
+      "128": "images/icon128.png" },
+    "popup": "popup.html"
   },
   "permissions": [
     "http://news.ycombinator.com/",
-		"tabs"
+    "tabs"
   ]
 }
 
