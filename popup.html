@@ -82,14 +82,18 @@
 
     function articleToHtml(article) {
       html = "<p>" +
-        "<div class=\"title\"><a href=\"" + article["comment_link"] + "\">" + article["title"] + "</a></div>" +
+        "<div class=\"title\">" + linkTo(article["comment_link"], article["title"]) + "</div>" +
         "<div class=\"subtext\">" + 
-          "<a href=\"" + article["comment_link"] + "\">" + article["comment_count"] + "</a>" +
-          "<div class=\"article_text\"><a href=\"" + article["article_link"] + "\">Original</a></div>" +
+					linkTo(article["comment_link"], article["comment_count"]) + 
+          "<div class=\"article_text\">" + linkTo(article["article_link"], "Original") + "</div>" +
         "</div>" + 
       "<hr /></p>";
       return html;
     }
+
+		function linkTo(link, text) {
+			return "<a href=\"" + link + "\" target=\"_blank\">" + text + "</a>";
+		}
   </script>
 
   <body>
