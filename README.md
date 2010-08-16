@@ -1,5 +1,5 @@
-Mustard Gas (HN3)
-=================
+Mustard Gas (HN3) for Hacker News
+=================================
 
 Mustard Gas is a Google Chrome extension for displaying the top 3 news items from Hacker News.
 
@@ -13,5 +13,5 @@ Improvements over Hacker News:
 * Links are larger and easier to click
 * Headline links go to comments, instead of the article
 
-Comments and bug reports welcome!
+Comments and bug reports welcome!  Post them here: http://github.com/Calamitous/MustardGas/issues
 
