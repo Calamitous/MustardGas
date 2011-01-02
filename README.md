@@ -7,6 +7,11 @@ Hacker News (http://news.ycombinator.com) is a wonderful site full of interestin
 
 It installs a small button in the title bar that pops up a list of the top three articles.  The headlines links to the "comments" section of Hacker News, and the "Article" link points to the original article the headline references.
 
+Installation
+============
+
+If you're using Chrome, simply navigate to the [Mustard Gas extension page](https://chrome.google.com/extensions/detail/mbaomoafgihhkhgmkkoealeopilfdeaf) and click the "Install"  button.
+
 Improvements over Hacker News:
 
 * Only shows the top three links from HN
