@@ -1,6 +1,6 @@
 {
   "name": "Mustard Gas (HN3) for Hacker News",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Mustard Gas",
   "browser_action": {
     "default_icon": "images/mustard_gas.png",
