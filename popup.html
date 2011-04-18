@@ -83,8 +83,8 @@
       var article_links  = $.map(title_tds   , function(n){ return n.href; });
       var subtext_refs   = $.map(subtext_tds , function(n){ return $(n).find("a"); });
 
-      var comment_counts = $.map(subtext_refs, function(ref){ return ref[1].text; });
-      var comment_links  = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[1]).attr('href'); });
+      var comment_counts = $.map(subtext_refs, function(ref){ return ref[2].text; });
+      var comment_links  = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[2]).attr('href'); });
 
       var posters        = $.map(subtext_refs, function(ref){ return ref[0].text; });
       var poster_links   = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[0]).attr('href'); });
