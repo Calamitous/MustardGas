@@ -31,21 +31,21 @@
     }
 
     .article_link {
-			float:right;
+      float:right;
     }
 
-		.about_link {
-			float:right;
-			font-size: smaller;
-		}
+    .about_link {
+      float:right;
+      font-size: smaller;
+    }
 
-		.hn3 a {
-			padding: 5px;
-		}
+    .hn3 a {
+      padding: 5px;
+    }
 
     .subtext {
-			padding: 5px;
-		}
+      padding: 5px;
+    }
 
     .subtext a {
       text-decoration: none;
@@ -55,7 +55,7 @@
 
     .subtext a:hover {
       background: #C2C2C2;
-		}
+    }
 
     .original_article {
       float: right;
@@ -65,16 +65,16 @@
       margin-bottom: 15px;
     }
 
-		img {
-			padding: 80px 184px;
-		}
+    img {
+      padding: 80px 184px;
+    }
   </style>
 
   <script>
     var hn3_url = "http://news.ycombinator.com"
 
     $.get(hn3_url, function(data){
-      var title_tds = $(data).find("td.title").find("a").slice(0, 3);
+      var title_tds   = $(data).find("td.title").find("a").slice(0, 3);
       var subtext_tds = $(data).find("td.subtext").slice(0, 3);
 
       var articles = [];
@@ -90,7 +90,7 @@
       var poster_links   = $.map(subtext_refs, function(ref){ return hn3_url + '/' + $(ref[0]).attr('href'); });
 
       $.each(titles, function(i, title){
-        articles[i] = { 
+        articles[i] = {
           title         : title,
           article_link  : article_links[i],
           comment_count : comment_counts[i],
@@ -112,10 +112,10 @@
     function articleToHtml(article) {
       html = "<p>" +
       "<div class=\"title\">" + linkTo(article["comment_link"], article["title"]) + "</div>" +
-      "<div class=\"subtext\">" + 
-        linkTo(article["comment_link"], article["comment_count"]) + 
+      "<div class=\"subtext\">" +
+        linkTo(article["comment_link"], article["comment_count"]) +
         "<div class=\"article_link\">" + linkTo(article["article_link"], "Article") + "</div>" +
-        "</div>" + 
+        "</div>" +
       "<hr /></p>";
       return html;
     }
@@ -126,10 +126,10 @@
   </script>
 
   <body>
-		<div class="header">
-			<a href="http://news.ycombinator.com" target="_blank">Hacker News<sub>3</sub></a>
-			<a class="about_link" href="http://wiki.github.com/Calamitous/MustardGas/" target="_blank">about</a>
-		</div>
+    <div class="header">
+      <a href="http://news.ycombinator.com" target="_blank">Hacker News<sub>3</sub></a>
+      <a class="about_link" href="http://wiki.github.com/Calamitous/MustardGas/" target="_blank">about</a>
+    </div>
     <div class="hn3">
       <img src="images/loading.gif">
     </div>
